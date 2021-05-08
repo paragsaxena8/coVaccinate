@@ -1,0 +1,124 @@
+<div class="card">
+    <div class="card-header card-header-primary card-header-tabs">
+        <div class="nav nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+                <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav nav-tabs">
+                    <li class="nav-item" ngbNavItem="top">
+                        <a class="nav-link" ngbNavLink>By Pin Code</a>
+                        <ng-template ngbNavContent>
+                            <div class="col-sm-12 col-md-6">
+                                <form #pincodeForm="ngForm">
+                                    <div class="form-group">
+                                        <label for="pinCode" class="col-form-label">Pin Code *</label>
+                                        <input type="number" class="form-control form-control-plaintext" name="pincode"
+                                            [(ngModel)]="pinCode" placeholder="Enter Pincode" #pincode="ngModel"
+                                            required />
+                                    </div>
+
+                                    <button type="submit" (click)="searchByPinCode(pincodeForm)"
+                                        [disabled]="pincodeForm.invalid" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+
+                        </ng-template>
+                    </li>
+                    <li class="nav-item" ngbNavItem="bottom">
+                        <a class="nav-link" ngbNavLink>By State/District</a>
+                        <ng-template ngbNavContent>
+                            <div class="form">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="" class="col-form-label">State *</label>
+                                            <select name="state" class="form-control" id="state" [(ngModel)]="stateInfo"
+                                                (change)="districtList()">
+                                                <option value=undefined>Select State</option>
+                                                <option *ngFor="let state of state_list" [ngValue]="state">
+                                                    {{state.state_name}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="distictInfo" class="col-form-label">District *</label>
+                                            <select name="district" class="form-control" id="district"
+                                                [(ngModel)]="distictInfo">
+                                                <option value=undefined>Select District</option>
+                                                <option *ngFor="let district of district_list" [ngValue]="district">
+                                                    {{district.district_name}}</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 row" *ngIf="distictInfo">
+                                    <button class="btn btn-primary" (click)="searchByStateDistrict()">
+                                        <i class="fa fa-search"></i>&nbsp;Search
+                                    </button>
+                                </div>
+                            </div>
+
+                        </ng-template>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div [ngbNavOutlet]="nav" class="card card-body"></div>
+
+        <h6 class="text-center" *ngIf="vaccinationSpots && vaccinationSpots?.length === 0">
+            No Slots Available
+        </h6>
+        <div class="row mt-3" *ngIf="vaccinationSpots?.length > 0">
+            <div class="card card-body container">
+                <div class="d-lg-flex justify-content-around">
+                    <button type="submit" class="btn btn-twitter btn-sm" *ngFor="let bt of filterArray"
+                        (click)="filterSearch(bt.value)">
+                        {{bt.name}}
+                    </button>
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6"
+                *ngFor="let vaccinationSpot of vaccinationSpots | filter: searchResult">
+                <div class="card card-chart fixed-card">
+                    <div class="card-header card-header-icon card-header-rose d-lg-flex justify-content-between">
+                        <div class="card-icon">
+                            <img [src]="imagePath" alt="syringe">
+                        </div>
+                        <p class="btn btn-info btn-just-icon font-small">{{vaccinationSpot.sessions[0].min_age_limit}} +
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">{{vaccinationSpot.name}}</h6>
+                        <p class="card-description">Address: {{vaccinationSpot.address}}</p>
+                        <div class="clearfix"></div>
+                        <p class="card-category">
+                            Vaccine - {{vaccinationSpot.sessions[0].vaccine}} (
+                            <span
+                                [ngClass]="{'text-danger': vaccinationSpot.fee_type == 'Paid'}">{{vaccinationSpot.fee_type}}</span>
+                            )
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <ng-template [ngIf]="vaccinationSpot.sessions[0].available_capacity === 0">
+                                <button class="btn btn-danger disabled" disabled>Booked</button>
+                            </ng-template>
+                            <ng-template [ngIf]="vaccinationSpot.sessions[0].available_capacity !== 0">
+                                <a class="btn btn-info" href="https://selfregistration.cowin.gov.in/" target="_blank"
+                                    title="Click to Book">Available</a>
+                            </ng-template>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    </ngx-spinner>
+</div>
