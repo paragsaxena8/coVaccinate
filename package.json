@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href=https://paragsaxena8.github.io/co-vaccinate/",
+    "build": "ng build --prod --base-href https://paragsaxena8.github.io/coVaccinate/",
     "gh": "ngh -no-silent",
     "gh:build": "npm run build && npm run gh"
   },

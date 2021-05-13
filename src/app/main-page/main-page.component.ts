@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -17,7 +18,7 @@ export class MainPageComponent implements OnInit {
   stateInfo: any;
   distictInfo: any;
   vaccinationSpots: any;
-  imagePath = '../../../assets/img/syringe.png';
+  imagePath = 'assets/img/syringe.png';
   filterArray = [
     { name: '18-44', value: '18' },
     { name: '45+', value: '45' },
