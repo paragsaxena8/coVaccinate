@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -9,8 +10,7 @@ export class VaccineInfoService {
   todayDate = `${String(this.today.getDate()).padStart(2, '0')}-${String(
     this.today.getMonth() + 1
   ).padStart(2, '0')}-${this.today.getFullYear()}`;
-  api_uri = 'https://cdn-api.co-vin.in/api/v2';
-  healtifyUri = 'https://www.healthifyme.com/api/v1/cowin';
+  api_uri = environment.cowin_api;
   constructor(private http: HttpClient) {}
 
   getPinCode(pincode: any) {
