@@ -15,7 +15,7 @@ export class VaccineInfoService {
 
   getPinCode(pincode: any) {
     return this.http.get(
-      `${this.api_uri}/appointment/sessions/public/calendarByPin`,
+      `${this.api_uri}/appointment/sessions/calendarByPin`,
       {
         params: new HttpParams()
           .set('pincode', pincode)
@@ -26,7 +26,7 @@ export class VaccineInfoService {
 
   getStateDistrictResult(district_id: any) {
     return this.http.get(
-      `${this.api_uri}/appointment/sessions/public/calendarByDistrict`,
+      `${this.api_uri}/appointment/sessions/calendarByDistrict`,
       {
         params: new HttpParams()
           .set('district_id', district_id)
