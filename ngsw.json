@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1621094987774,
+  "timestamp": 1635238394694,
   "index": "https://paragsaxena8.github.io/coVaccinate/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "https://paragsaxena8.github.io/coVaccinate/index.html",
-        "https://paragsaxena8.github.io/coVaccinate/main.0487b5d9324a2277cec2.js",
+        "https://paragsaxena8.github.io/coVaccinate/main.956fe78ed5fde7998f07.js",
         "https://paragsaxena8.github.io/coVaccinate/manifest.webmanifest",
         "https://paragsaxena8.github.io/coVaccinate/polyfills.94daefd414b8355106ab.js",
         "https://paragsaxena8.github.io/coVaccinate/runtime.7b63b9fd40098a2e8207.js",
@@ -74,8 +74,8 @@
     "https://paragsaxena8.github.io/coVaccinate/fontawesome-webfont.8b43027f47b20503057d.eot": "d980c2ce873dc43af460d4d572d441304499f400",
     "https://paragsaxena8.github.io/coVaccinate/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed",
     "https://paragsaxena8.github.io/coVaccinate/fontawesome-webfont.f691f37e57f04c152e23.woff": "28b782240b3e76db824e12c02754a9731a167527",
-    "https://paragsaxena8.github.io/coVaccinate/index.html": "4d1df427222d0fd00c9363d1909c9eb839af7e25",
-    "https://paragsaxena8.github.io/coVaccinate/main.0487b5d9324a2277cec2.js": "030c2b3aa235973b28c9a362611211271a069420",
+    "https://paragsaxena8.github.io/coVaccinate/index.html": "807a223716a646360f40a5bf6b7ad80d0b305d7c",
+    "https://paragsaxena8.github.io/coVaccinate/main.956fe78ed5fde7998f07.js": "31e2260cd0010996e38b018af77daf756f69d238",
     "https://paragsaxena8.github.io/coVaccinate/manifest.webmanifest": "7e84aa8dacabc0647ac60919d02af73bd752954d",
     "https://paragsaxena8.github.io/coVaccinate/polyfills.94daefd414b8355106ab.js": "cfe7b0b53e96bff9ba384b4d497c08475a617d62",
     "https://paragsaxena8.github.io/coVaccinate/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
